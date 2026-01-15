@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--
+    Declares the document type as HTML5.
+    This tells the browser to use modern HTML standards.
+-->
+<html lang="en">
+<head>
+    <!--
+        Defines the character encoding.
+        UTF-8 supports accents, emojis, and special characters.
+    -->
+    <meta charset="UTF-8">
+
+    <!--
+        Makes the layout responsive on mobile devices.
+        Ensures proper scaling on phones and tablets.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+        The title shown in the browser tab.
+    -->
+    <title>Soccer Player Guessing Game</title>
+
+    <!--
+        External CSS file.
+        All visual styling (colors, layout, animations) is handled there.
+        Keeps HTML clean and maintainable.
+    -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!--
+    Main container for the entire game UI.
+    Used to center and visually group the game.
+-->
+<div class="game-container">
+
+    <!--
+        Header section:
+        - Game title
+        - Score display
+    -->
+    <div class="header">
+        <h1>⚽ Guess the Player</h1>
+
+        <!--
+            Score box:
+            - Label ("Score")
+            - Dynamic score value updated via JavaScript
+        -->
+        <div class="score-box">
+            <div class="score-label">Score</div>
+            <div class="score-value" id="score">0</div>
+        </div>
+    </div>
+
+    <!--
+        Main gameplay screen.
+        Visible while the player is guessing.
+        Hidden when the result screen is shown.
+    -->
+    <div id="gameScreen">
+
+        <!--
+            Hints section:
+            - Title
+            - Container where hint elements are dynamically added
+        -->
+        <div class="hints-section">
+            <div class="hints-title">Hints:</div>
+            <br>
+            <!--
+                JavaScript inserts hint <div>s here.
+            -->
+            <div id="hintsContainer"></div>
+        </div>
+
+        <!--
+            Input section:
+            - Text input for guessing player name
+            - Autocomplete suggestions list
+        -->
+        <div class="input-section">
+
+            <!--
+                Text input where user types the player name.
+                Listens for input and Enter key in JavaScript.
+            -->
+            <input
+                type="text"
+                id="guessInput"
+                placeholder="Type player's name..."
+            >
+
+            <!--
+                Suggestions dropdown:
+                - Populated dynamically as user types
+                - Inline styles used for simplicity
+                - Could later be moved to CSS
+            -->
+            <ul id="suggestions" style="
+                list-style:none;
+                padding:0;
+                margin-top:5px;
+                border:1px solid #ddd;
+                border-radius:8px;
+                max-height:150px;
+                overflow-y:auto;
+            "></ul>
+            <br>
+        </div>
+
+        <!--
+            Game action buttons:
+            - Submit guess
+            - Request hints by category
+        -->
+        <div class="buttons">
+
+            <!--
+                Submits the player's guess.
+                Calls submitGuess() in game.js
+            -->
+            <button class="submit-btn" onclick="submitGuess()">
+                Submit Guess
+            </button>
+
+            <!--
+                Hint buttons:
+                Each one reveals a specific hint type.
+                Disabled automatically when hints are exhausted.
+            -->
+            <button class="hint-btn" onclick="showHint('country')">
+                🌍 Country
+            </button>
+
+            <button class="hint-btn" onclick="showHint('club')">
+                🏟 Club
+            </button>
+
+            <button class="hint-btn" onclick="showHint('position')">
+                📍 Position
+            </button>
+        </div>
+
+        <!--
+            Displays how many hints have been used.
+            Updated dynamically via JavaScript.
+        -->
+        <div class="hint-counter" id="hintCounter"></div>
+    </div>
+
+    <!--
+        Result screen:
+        - Hidden during gameplay
+        - Shown after win or loss
+    -->
+    <div id="resultScreen" class="result-screen hidden">
+
+        <!--
+            Emoji representing win or loss
+            (🎉 or 😔)
+        -->
+        <div class="result-emoji" id="resultEmoji"></div>
+
+        <!--
+            Result title:
+            "Correct!" or "Out of Hints!"
+        -->
+        <div class="result-title" id="resultTitle"></div>
+
+        <!--
+            Main result text:
+            Shows the correct player's name
+        -->
+        <div class="result-text" id="resultText"></div>
+
+        <!--
+            Additional info:
+            - Number of hints used
+            - Optional extra messages
+        -->
+        <div class="result-info" id="resultInfo"></div>
+
+        <!--
+            Starts a new round with a new random player
+        -->
+        <button class="next-btn" onclick="startNewRound()">
+            🔄 Next Player
+        </button>
+    </div>
+</div>
+
+<!--
+    External JavaScript file.
+    Contains:
+    - Player data
+    - Game logic
+    - Hint handling
+    - Score updates
+-->
+<script src="game.js"></script>
+
+</body>
+</html>
