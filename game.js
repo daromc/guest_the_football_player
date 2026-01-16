@@ -18,7 +18,7 @@
 
 var players = [
     { firstName: "Lionel", lastName: "Messi", country: "Argentina", clubs: ["Barcelona", "PSG", "Inter Miami"], position: "Forward" },
-    { firstName: "Cristiano", lastName: "Ronaldo", country: "Portugal", clubs: ["Manchester United", "Real Madrid", "Juventus", "Al-Nassr"], position: "Forward" },
+    { firstName: "Cristiano", lastName: "Ronaldo", country: "Portugal", clubs: ["Sporting CP","Manchester United", "Real Madrid", "Juventus", "Al-Nassr"], position: "Forward" },
     { firstName: "Neymar", lastName: "Jr", country: "Brazil", clubs: ["Santos", "Barcelona", "PSG", "Al-Hilal"], position: "Forward" },
     { firstName: "Kylian", lastName: "Mbappe", country: "France", clubs: ["Monaco", "PSG", "Real Madrid"], position: "Forward" },
     { firstName: "Erling", lastName: "Haaland", country: "Norway", clubs: ["RB Salzburg", "Borussia Dortmund", "Manchester City"], position: "Forward" },
@@ -29,7 +29,7 @@ var players = [
     { firstName: "Andres", lastName: "Iniesta", country: "Spain", clubs: ["Barcelona", "Vissel Kobe"], position: "Midfielder" },
     { firstName: "Xavi", lastName: "Hernandez", country: "Spain", clubs: ["Barcelona", "Al-Sadd"], position: "Midfielder" },
 
-    { firstName: "Robert", lastName: "Lewandowski", country: "Poland", clubs: ["Lech Poznan", "Dortmund", "Bayern Munich", "Barcelona"], position: "Forward" },
+    { firstName: "Robert", lastName: "Lewandowski", country: "Poland", clubs: ["Lech Poznan", "B. Dortmund", "Bayern Munich", "Barcelona"], position: "Forward" },
     { firstName: "Karim", lastName: "Benzema", country: "France", clubs: ["Lyon", "Real Madrid", "Al-Ittihad"], position: "Forward" },
     { firstName: "Harry", lastName: "Kane", country: "England", clubs: ["Tottenham", "Bayern Munich"], position: "Forward" },
     { firstName: "Luis", lastName: "Suarez", country: "Uruguay", clubs: ["Ajax", "Liverpool", "Barcelona", "Inter Miami"], position: "Forward" },
@@ -39,12 +39,12 @@ var players = [
     { firstName: "Sadio", lastName: "Mane", country: "Senegal", clubs: ["Southampton", "Liverpool", "Bayern Munich", "Al-Nassr"], position: "Forward" },
     { firstName: "Eden", lastName: "Hazard", country: "Belgium", clubs: ["Lille", "Chelsea", "Real Madrid"], position: "Forward" },
     { firstName: "Antoine", lastName: "Griezmann", country: "France", clubs: ["Real Sociedad", "Atletico Madrid", "Barcelona"], position: "Forward" },
-    { firstName: "Ronaldinho", lastName: "Gaucho", country: "Brazil", clubs: ["PSG", "Barcelona", "AC Milan"], position: "Forward" },
+    { firstName: "Ronaldinho", lastName: "Gaucho", country: "Brazil", clubs: ["Gremio","PSG", "Barcelona", "AC Milan","Flamengo", "Atlético Mineiro", "Querétaro"], position: "Forward" },
 
     { firstName: "Virgil", lastName: "van Dijk", country: "Netherlands", clubs: ["Celtic", "Southampton", "Liverpool"], position: "Defender" },
     { firstName: "Sergio", lastName: "Ramos", country: "Spain", clubs: ["Sevilla", "Real Madrid", "PSG"], position: "Defender" },
     { firstName: "Paolo", lastName: "Maldini", country: "Italy", clubs: ["AC Milan"], position: "Defender" },
-    { firstName: "Fabio", lastName: "Cannavaro", country: "Italy", clubs: ["Parma", "Juventus", "Real Madrid"], position: "Defender" },
+    { firstName: "Fabio", lastName: "Cannavaro", country: "Italy", clubs: ["Parma", "Juventus", "Real Madrid", "Al-Ahli"], position: "Defender" },
     { firstName: "Carles", lastName: "Puyol", country: "Spain", clubs: ["Barcelona"], position: "Defender" },
 
     { firstName: "Joshua", lastName: "Kimmich", country: "Germany", clubs: ["RB Leipzig", "Bayern Munich"], position: "Midfielder" },
@@ -72,13 +72,13 @@ var players = [
     { firstName: "Fernando", lastName: "Torres", country: "Spain", clubs: ["Atletico Madrid", "Liverpool", "Chelsea"], position: "Forward" },
 
     { firstName: "Marco", lastName: "van Basten", country: "Netherlands", clubs: ["Ajax", "AC Milan"], position: "Forward" },
-    { firstName: "Ronaldo", lastName: "Nazario", country: "Brazil", clubs: ["PSV", "Barcelona", "Inter", "Real Madrid"], position: "Forward" },
+    { firstName: "Ronaldo", lastName: "Nazario", country: "Brazil", clubs: ["PSV", "Barcelona", "Inter", "Real Madrid", "AC Milan", "Corinthians"], position: "Forward" },
     { firstName: "George", lastName: "Weah", country: "Liberia", clubs: ["PSG", "AC Milan", "Chelsea"], position: "Forward" },
     { firstName: "Dennis", lastName: "Bergkamp", country: "Netherlands", clubs: ["Ajax", "Inter", "Arsenal"], position: "Forward" },
     { firstName: "Hristo", lastName: "Stoichkov", country: "Bulgaria", clubs: ["CSKA Sofia", "Barcelona"], position: "Forward" },
 
     { firstName: "Clarence", lastName: "Seedorf", country: "Netherlands", clubs: ["Ajax", "Real Madrid", "Inter", "AC Milan"], position: "Midfielder" },
-    { firstName: "Zinedine", lastName: "Zidane", country: "France", clubs: ["Juventus", "Real Madrid"], position: "Midfielder" },
+    { firstName: "Zinedine", lastName: "Zidane", country: "France", clubs: ["Girondins de Bordeaux","Juventus", "Real Madrid"], position: "Midfielder" },
     { firstName: "Michael", lastName: "Ballack", country: "Germany", clubs: ["Bayer Leverkusen", "Chelsea", "Bayern Munich"], position: "Midfielder" },
     { firstName: "Xabi", lastName: "Alonso", country: "Spain", clubs: ["Liverpool", "Real Madrid", "Bayern Munich"], position: "Midfielder" },
     { firstName: "Bastian", lastName: "Schweinsteiger", country: "Germany", clubs: ["Bayern Munich", "Manchester United"], position: "Midfielder" },
@@ -111,7 +111,28 @@ var players = [
     { firstName: "Marc-Andre", lastName: "ter Stegen", country: "Germany", clubs: ["Borussia Monchengladbach", "Barcelona"], position: "Goalkeeper" },
     { firstName: "Hugo", lastName: "Lloris", country: "France", clubs: ["Lyon", "Tottenham", "Los Angeles FC"], position: "Goalkeeper" },
     { firstName: "Claudio", lastName: "Bravo", country: "Chile", clubs: ["Real Sociedad", "Barcelona", "Manchester City"], position: "Goalkeeper" },
-    { firstName: "Emiliano", lastName: "Martinez", country: "Argentina", clubs: ["Arsenal", "Aston Villa"], position: "Goalkeeper" }
+    { firstName: "Emiliano", lastName: "Martinez", country: "Argentina", clubs: ["Arsenal", "Aston Villa"], position: "Goalkeeper" },
+    { firstName: "Carlos", lastName: "Valderrama", country: "Colombia", clubs: ["D. Cali", "Junior", "Montpellier", "Real Valladolid", "Tampa Bay Mutiny"], position: "Midfielder" },
+    { firstName: "Pele", lastName: "Nascimento", country: "Brazil", clubs: ["Santos", "New York Cosmos"], position: "Forward" },
+    { firstName: "Roberto", lastName: "Baggio", country: "Italy", clubs: ["Fiorentina", "Juventus", "AC Milan", "Inter", "Brescia"], position: "Forward" },
+    { firstName: "Ruud", lastName: "Gullit", country: "Netherlands", clubs: ["Feyenoord", "PSV", "AC Milan", "Chelsea"], position: "Midfielder" },
+    { firstName: "Ronald", lastName: "Koeman", country: "Netherlands", clubs: ["Ajax", "PSV", "Barcelona", "Feyenoord"], position: "Defender" },
+    { firstName: "Romario", lastName: "de Souza", country: "Brazil", clubs: ["Vasco da Gama", "PSV", "Barcelona", "Flamengo"], position: "Forward" },
+    { firstName: "Bebeto", lastName: "Gama", country: "Brazil", clubs: ["Flamengo", "Deportivo La Coruna", "Vasco da Gama"], position: "Forward" },
+
+    { firstName: "Gabriel", lastName: "Batistuta", country: "Argentina", clubs: ["Fiorentina", "Roma", "Inter"], position: "Forward" },
+    { firstName: "Juan", lastName: "Roman Riquelme", country: "Argentina", clubs: ["Boca Juniors", "Barcelona", "Villarreal"], position: "Midfielder" },
+    { firstName: "Diego", lastName: "Forlan", country: "Uruguay", clubs: ["Manchester United", "Villarreal", "Atletico Madrid", "Inter"], position: "Forward" },
+    { firstName: "Paulo", lastName: "Dybala", country: "Argentina", clubs: ["Palermo", "Juventus", "Roma"], position: "Forward" },
+    { firstName: "Rivaldo", lastName: "Ferreira", country: "Brazil", clubs: ["Deportivo La Coruna", "Barcelona", "AC Milan"], position: "Midfielder" },
+
+    { firstName: "Franz", lastName: "Beckenbauer", country: "Germany", clubs: ["Bayern Munich", "New York Cosmos"], position: "Defender" },
+    { firstName: "Lothar", lastName: "Matthaus", country: "Germany", clubs: ["Bayern Munich", "Inter"], position: "Midfielder" },
+    { firstName: "Johan", lastName: "Cruyff", country: "Netherlands", clubs: ["Ajax", "Barcelona"], position: "Forward" },
+    { firstName: "Kaka", lastName: "dos Santos", country: "Brazil", clubs: ["AC Milan", "Real Madrid", "Orlando City"], position: "Midfielder" },
+    { firstName: "Hernan", lastName: "Crespo", country: "Argentina", clubs: ["Parma", "Lazio", "Inter", "Chelsea", "AC Milan"], position: "Forward" },
+    { firstName: "Diego", lastName: "Maradona", country: "Argentina", clubs: ["Argentinos Juniors", "Boca Juniors", "Barcelona", "Napoli", "Sevilla"], position: "Midfielder" },
+
 
 ];
 
@@ -320,3 +341,4 @@ function showResult(won) {
  * Starts the first round automatically when page loads.
  *******************************************************/
 startNewRound();
+
