@@ -98,7 +98,7 @@ var players = [
     { firstName: "Gerard", lastName: "Pique", country: "Spain", clubs: ["Manchester United", "Barcelona"], position: "Defender" },
     { firstName: "Alessandro", lastName: "Nesta", country: "Italy", clubs: ["Lazio", "AC Milan"], position: "Defender" },
     { firstName: "Ashley", lastName: "Cole", country: "England", clubs: ["Arsenal", "Chelsea"], position: "Defender" },
-    { firstName: "Marcelo", lastName: "Vieira", country: "Brazil", clubs: ["Real Madrid"], position: "Defender" },
+    { firstName: "Marcelo", lastName: "Vieira", country: "Brazil", clubs: ["Fluminense","Real Madrid", "Olympiacos"], position: "Defender" },
     { firstName: "Leonardo", lastName: "Bonucci", country: "Italy", clubs: ["Juventus", "AC Milan"], position: "Defender" },
 
     { firstName: "Peter", lastName: "Schmeichel", country: "Denmark", clubs: ["Manchester United"], position: "Goalkeeper" },
@@ -109,7 +109,7 @@ var players = [
 
     { firstName: "Jan", lastName: "Oblak", country: "Slovenia", clubs: ["Benfica", "Atletico Madrid"], position: "Goalkeeper" },
     { firstName: "Marc-Andre", lastName: "ter Stegen", country: "Germany", clubs: ["Borussia Monchengladbach", "Barcelona"], position: "Goalkeeper" },
-    { firstName: "Hugo", lastName: "Lloris", country: "France", clubs: ["Lyon", "Tottenham"], position: "Goalkeeper" },
+    { firstName: "Hugo", lastName: "Lloris", country: "France", clubs: ["Lyon", "Tottenham", "Los Angeles FC"], position: "Goalkeeper" },
     { firstName: "Claudio", lastName: "Bravo", country: "Chile", clubs: ["Real Sociedad", "Barcelona", "Manchester City"], position: "Goalkeeper" },
     { firstName: "Emiliano", lastName: "Martinez", country: "Argentina", clubs: ["Arsenal", "Aston Villa"], position: "Goalkeeper" }
 
@@ -129,11 +129,12 @@ var currentPlayer;
 var usedHints = 0;
 
 // Maximum hints allowed before losing
-var maxHints = 5;
+var maxHints = 6;
 
 // Player's total score across rounds
 var score = 0;
 
+var clubHintIndex = 0;
 /*******************************************************
  * AUTOCOMPLETE / SUGGESTIONS LOGIC
  * -----------------------------------------------------
@@ -199,10 +200,11 @@ document.getElementById("guessInput").addEventListener("input", function () {
 function startNewRound() {
     currentPlayer = players[Math.floor(Math.random() * players.length)];
     usedHints = 0;
+    clubHintIndex = 0; // reset club order
 
     document.getElementById("hintsContainer").innerHTML = "";
     document.getElementById("guessInput").value = "";
-    document.getElementById("hintCounter").textContent = "Hints used: 0 / " + maxHints;
+    document.getElementById("hintCounter").textContent = "Hints used: 0 / " + (maxHints - 1);
 
     document.getElementById("gameScreen").classList.remove("hidden");
     document.getElementById("resultScreen").classList.add("hidden");
@@ -215,19 +217,27 @@ function startNewRound() {
  * - position
  * - club (random from club list)
  */
+
 function showHint(type) {
 
     // If max hints reached, player loses automatically
-    if (usedHints >= maxHints) return showResult(false);
-
+    if (usedHints > maxHints) {
+        showResult(false);
+        return;
+    }
     let text = "";
 
     if (type === "country") text = "Country: " + currentPlayer.country;
     if (type === "position") text = "Position: " + currentPlayer.position;
     if (type === "club") {
-        text = "Club: " +
-            currentPlayer.clubs[Math.floor(Math.random() * currentPlayer.clubs.length)];
+    // Always show clubs in order
+    text = "Club: " + currentPlayer.clubs[clubHintIndex];
+
+    // Move to next club, but never go out of bounds
+    if (clubHintIndex < currentPlayer.clubs.length - 1) {
+        clubHintIndex++;
     }
+}
 
     // Create visual hint element
     let div = document.createElement("div");
@@ -239,7 +249,7 @@ function showHint(type) {
     // Update hint counter
     usedHints++;
     document.getElementById("hintCounter").textContent =
-        "Hints used: " + usedHints + " / " + maxHints;
+        "Hints used: " + usedHints + " / " + (maxHints - 1);
 
     // Auto-lose when last hint is used
     if (usedHints === maxHints)
